@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:pdf_pipeline_app/core/theme/app_colors.dart';
+import 'package:pdf_pipeline_app/shared/theme/app_colors.dart';
 
 class Bootstrap {
   Bootstrap._();

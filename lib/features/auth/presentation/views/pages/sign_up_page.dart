@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pdf_pipeline_app/app/router/app_navigation.dart';
-import 'package:pdf_pipeline_app/core/theme/app_colors.dart';
-import 'package:pdf_pipeline_app/shared/utils/app_toast.dart';
-import '../../../constants/auth_terms.dart';
+import 'package:pdf_pipeline_app/shared/theme/app_colors.dart';
+import 'package:pdf_pipeline_app/shared/toast/app_toast.dart';
+import '../../../../../core/constants/terms.dart';
 import '../../../providers/auth_providers.dart';
 import '../../../presentation/states/sign_up_state.dart';
 import 'sign_up_info_page.dart';
@@ -90,8 +90,8 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
           _updateAllAgreed();
         },
         onNext: _termsAgreed && _privacyAgreed ? _nextPage : null,
-        onTermsTap: () => _showTermsSheet('이용약관', AuthTerms.terms),
-        onPrivacyTap: () => _showTermsSheet('개인정보 처리방침', AuthTerms.privacy),
+        onTermsTap: () => _showTermsSheet('이용약관', Terms.terms),
+        onPrivacyTap: () => _showTermsSheet('개인정보 처리방침', Terms.privacy),
       );
 
   void _showTermsSheet(String title, String content) {
