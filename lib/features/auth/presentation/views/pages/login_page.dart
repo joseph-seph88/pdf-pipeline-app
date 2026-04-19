@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pdf_pipeline_app/app/router/app_navigation.dart';
-import 'package:pdf_pipeline_app/core/theme/app_colors.dart';
-import 'package:pdf_pipeline_app/shared/utils/app_toast.dart';
+import 'package:pdf_pipeline_app/shared/theme/app_colors.dart';
+import 'package:pdf_pipeline_app/shared/toast/app_toast.dart';
 import '../../../providers/auth_providers.dart';
 import '../../../presentation/states/login_state.dart';
-import '../../../utils/auth_validator.dart';
+import '../../auth_validator.dart';
 import '../widgets/auth_header.dart';
 import '../widgets/auth_primary_button.dart';
 import '../widgets/auth_text_field.dart';
