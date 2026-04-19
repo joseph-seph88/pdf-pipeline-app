@@ -11,7 +11,9 @@ abstract class AuthValidator {
     if (value.length < 8) return '비밀번호는 8자 이상이어야 합니다';
     if (!RegExp(r'[a-zA-Z]').hasMatch(value)) return '영문자를 포함해야 합니다';
     if (!RegExp(r'[0-9]').hasMatch(value)) return '숫자를 포함해야 합니다';
-    if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) return '특수문자를 포함해야 합니다';
+    if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
+      return '특수문자를 포함해야 합니다';
+    }
     return null;
   }
 

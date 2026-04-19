@@ -78,8 +78,8 @@ class _SplashPageState extends ConsumerState<SplashPage>
     await Future.wait([
       Future.delayed(const Duration(milliseconds: 2000)),
       ref.read(authStateProvider.notifier).initialize(
-        ref.read(tokenStorageProvider),
-      ),
+            ref.read(tokenStorageProvider),
+          ),
     ]);
 
     if (!mounted) return;

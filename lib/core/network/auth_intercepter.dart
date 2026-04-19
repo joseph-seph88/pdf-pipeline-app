@@ -9,8 +9,8 @@ class AuthInterceptor extends Interceptor {
   AuthInterceptor({
     required TokenStorage tokenStorage,
     required VoidCallback onUnauthorized,
-  }) : _tokenStorage = tokenStorage,
-       _onUnauthorized = onUnauthorized;
+  })  : _tokenStorage = tokenStorage,
+        _onUnauthorized = onUnauthorized;
 
   final TokenStorage _tokenStorage;
   final VoidCallback _onUnauthorized;
@@ -49,8 +49,8 @@ class AuthInterceptor extends Interceptor {
     final isAuthError = statusCode == 401 || statusCode == 403;
     final isAuthStatusType =
         statusType == ServerStatusType.invalidToken.value ||
-        statusType == ServerStatusType.authRequired.value ||
-        statusType == ServerStatusType.unauthorized.value;
+            statusType == ServerStatusType.authRequired.value ||
+            statusType == ServerStatusType.unauthorized.value;
 
     if (isAuthError && isAuthStatusType) {
       logger.w('인증 에러 ($statusCode, $statusType)');

@@ -14,10 +14,10 @@ class SignUpRequest {
   final bool privacyAgreed;
 
   Map<String, dynamic> toJson() => {
-    'email': email,
-    'password': password,
-    'name': name,
-    'terms_agreed': termsAgreed,
-    'privacy_agreed': privacyAgreed,
-  };
+        'email': email,
+        'password': password,
+        'name': name,
+        'terms_agreed': termsAgreed,
+        'privacy_agreed': privacyAgreed,
+      };
 }

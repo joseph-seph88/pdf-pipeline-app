@@ -18,7 +18,8 @@ class DioConfig {
         receiveTimeout: const Duration(seconds: 10),
       ),
     )..interceptors.add(
-        AuthInterceptor(tokenStorage: tokenStorage, onUnauthorized: onUnauthorized),
+        AuthInterceptor(
+            tokenStorage: tokenStorage, onUnauthorized: onUnauthorized),
       );
 
     if (kDebugMode) {

@@ -18,12 +18,12 @@ class SignUpNotifier extends Notifier<SignUpState> {
     state = state.copyWith(status: SignUpStatus.loading);
 
     final result = await ref.read(authRepositoryProvider).signUp(
-      email: email,
-      password: password,
-      name: name,
-      termsAgreed: termsAgreed,
-      privacyAgreed: privacyAgreed,
-    );
+          email: email,
+          password: password,
+          name: name,
+          termsAgreed: termsAgreed,
+          privacyAgreed: privacyAgreed,
+        );
 
     result.fold(
       (failure) => state = state.copyWith(
@@ -34,8 +34,7 @@ class SignUpNotifier extends Notifier<SignUpState> {
         if (res.statusType != ServerStatusType.success.value) {
           state = state.copyWith(
             status: SignUpStatus.failure,
-            errorMessage:
-                ServerStatusType.fromValue(res.statusType)?.message ??
+            errorMessage: ServerStatusType.fromValue(res.statusType)?.message ??
                 AppMessage.unknown,
           );
           return;

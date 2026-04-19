@@ -18,16 +18,17 @@ class ApiClient {
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-  }) => _handleRequest(
-    fromData,
-    () => _dio.get(
-      path,
-      queryParameters: queryParameters,
-      options: options,
-      cancelToken: cancelToken,
-      onReceiveProgress: onReceiveProgress,
-    ),
-  );
+  }) =>
+      _handleRequest(
+        fromData,
+        () => _dio.get(
+          path,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+          onReceiveProgress: onReceiveProgress,
+        ),
+      );
 
   Future<Either<Failure, ApiResponse<T>>> post<T>(
     String path,
@@ -38,18 +39,19 @@ class ApiClient {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-  }) => _handleRequest(
-    fromData,
-    () => _dio.post(
-      path,
-      data: data,
-      queryParameters: queryParameters,
-      options: options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    ),
-  );
+  }) =>
+      _handleRequest(
+        fromData,
+        () => _dio.post(
+          path,
+          data: data,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+          onSendProgress: onSendProgress,
+          onReceiveProgress: onReceiveProgress,
+        ),
+      );
 
   Future<Either<Failure, ApiResponse<T>>> put<T>(
     String path,
@@ -60,18 +62,19 @@ class ApiClient {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-  }) => _handleRequest(
-    fromData,
-    () => _dio.put(
-      path,
-      data: data,
-      queryParameters: queryParameters,
-      options: options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    ),
-  );
+  }) =>
+      _handleRequest(
+        fromData,
+        () => _dio.put(
+          path,
+          data: data,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+          onSendProgress: onSendProgress,
+          onReceiveProgress: onReceiveProgress,
+        ),
+      );
 
   Future<Either<Failure, ApiResponse<T>>> patch<T>(
     String path,
@@ -82,18 +85,19 @@ class ApiClient {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-  }) => _handleRequest(
-    fromData,
-    () => _dio.patch(
-      path,
-      data: data,
-      queryParameters: queryParameters,
-      options: options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    ),
-  );
+  }) =>
+      _handleRequest(
+        fromData,
+        () => _dio.patch(
+          path,
+          data: data,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+          onSendProgress: onSendProgress,
+          onReceiveProgress: onReceiveProgress,
+        ),
+      );
 
   Future<Either<Failure, ApiResponse<T>>> delete<T>(
     String path,
@@ -102,16 +106,17 @@ class ApiClient {
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-  }) => _handleRequest(
-    fromData,
-    () => _dio.delete(
-      path,
-      data: data,
-      queryParameters: queryParameters,
-      options: options,
-      cancelToken: cancelToken,
-    ),
-  );
+  }) =>
+      _handleRequest(
+        fromData,
+        () => _dio.delete(
+          path,
+          data: data,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+        ),
+      );
 
   Future<Either<Failure, ApiResponse<T>>> _handleRequest<T>(
     T Function(dynamic) fromData,
