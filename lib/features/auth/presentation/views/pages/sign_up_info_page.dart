@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pdf_pipeline_app/core/theme/app_colors.dart';
-import '../../../utils/auth_validator.dart';
+import 'package:pdf_pipeline_app/shared/theme/app_colors.dart';
+import '../../auth_validator.dart';
 import '../widgets/auth_header.dart';
 import '../widgets/auth_primary_button.dart';
 import '../widgets/auth_text_field.dart';

@@ -4,8 +4,8 @@ import 'package:pdf_pipeline_app/features/auth/presentation/views/pages/login_pa
 import 'package:pdf_pipeline_app/features/auth/presentation/views/pages/sign_up_page.dart';
 import 'package:pdf_pipeline_app/features/my_files/presentation/views/pages/my_files_page.dart';
 import 'package:pdf_pipeline_app/features/pdf_convert/presentation/views/pages/pdf_convert_page.dart';
-import 'package:pdf_pipeline_app/shared/pages/shell_page.dart';
-import 'package:pdf_pipeline_app/shared/pages/splash_page.dart';
+import 'package:pdf_pipeline_app/app/shell/shell_page.dart';
+import 'package:pdf_pipeline_app/app/splash/splash_page.dart';
 
 class AppRoutes {
   static final entryRoutes = <RouteBase>[

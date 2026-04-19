@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pdf_pipeline_app/core/theme/app_colors.dart';
+import 'package:pdf_pipeline_app/shared/theme/app_colors.dart';
 
 class AuthTextField extends StatelessWidget {
   const AuthTextField({

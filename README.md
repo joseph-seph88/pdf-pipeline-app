@@ -24,9 +24,9 @@ PDF 업로드·변환·파일 관리를 지원하는 Flutter 기반 모바일 �
 lib/
 ├── main.dart          # 앱 진입점, .env 로드 및 bootstrap 호출
 ├── app/               # 앱 초기화 및 GoRouter 라우팅 설정
-├── core/              # 네트워크, 세션, 에러, 테마 등 feature에 종속되지 않는 전역 모듈
+├── core/              # 앱 전역 로직
 ├── features/          # 기능 단위 모듈, 각각 Clean Architecture 레이어로 분리
-└── shared/            # 여러 feature가 공통으로 쓰는 페이지·유틸
+└── shared/            # 공통 UI (디자인 시스템)
 ```
 
 ### 아키텍처
