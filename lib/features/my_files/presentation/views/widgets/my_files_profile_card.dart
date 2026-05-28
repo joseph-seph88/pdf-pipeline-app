@@ -60,24 +60,38 @@ class _Avatar extends StatelessWidget {
 
   final User? profile;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 48.w,
-      height: 48.w,
-      decoration: const BoxDecoration(
+  Widget _initialFallback(double size) => Container(
+        width: size,
+        height: size,
         color: AppColors.primary,
-        shape: BoxShape.circle,
-      ),
-      child: Center(
-        child: Text(
-          profile?.initial ?? '?',
-          style: TextStyle(
-            color: AppColors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.w700,
+        child: Center(
+          child: Text(
+            profile?.initial ?? '?',
+            style: TextStyle(
+              color: AppColors.white,
+              fontSize: 20.sp,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    final size = 48.w;
+    final imageUrl = profile?.profileImage;
+
+    if (imageUrl == null) {
+      return ClipOval(child: _initialFallback(size));
+    }
+
+    return ClipOval(
+      child: Image.network(
+        imageUrl,
+        width: size,
+        height: size,
+        fit: BoxFit.cover,
+        errorBuilder: (_, __, ___) => _initialFallback(size),
       ),
     );
   }
