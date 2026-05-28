@@ -6,8 +6,8 @@ import 'package:pdf_pipeline_app/shared/toast/app_toast.dart';
 import '../../../providers/auth_providers.dart';
 import '../../../presentation/states/login_state.dart';
 import '../../auth_validator.dart';
+import 'package:pdf_pipeline_app/shared/widgets/app_primary_button.dart';
 import '../widgets/auth_header.dart';
-import '../widgets/auth_primary_button.dart';
 import '../widgets/auth_text_field.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
@@ -105,7 +105,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       );
 
   Widget _buildLoginButton(bool isLoading) =>
-      AuthPrimaryButton(label: '로그인', onPressed: isLoading ? null : _onLogin);
+      AppPrimaryButton(label: '로그인', onPressed: isLoading ? null : _onLogin);
 
   Widget _buildSignUpRow() => Row(
         mainAxisAlignment: MainAxisAlignment.center,

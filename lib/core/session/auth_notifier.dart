@@ -23,4 +23,10 @@ class AuthNotifier extends Notifier<AuthState> {
 
   void setTokenExpired() =>
       state = const AuthState(status: AuthStatus.tokenExpired);
+
+  Future<void> logout(TokenStorage tokenStorage) async {
+    await tokenStorage.clearAccessToken();
+    await tokenStorage.clearUserEmail();
+    state = const AuthState(status: AuthStatus.unauthenticated);
+  }
 }

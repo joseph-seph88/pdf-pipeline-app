@@ -26,9 +26,14 @@ class AppColors {
   static const Color textSub = Color(0xFF757575);
   static const Color textCaption = Color(0xFF9E9E9E);
 
+  // Background
+  static const Color backgroundGrey = Color(0xFFF7F7F7);
+  static const Color segmentBackground = Color(0xFFF0F0F0);
+
   // Border
   static const Color borderDefault = Color(0xFFE0E0E0);
 
   // Status
   static const Color error = Color(0xFFEF5350);
+  static const Color pdfRed = Color(0xFFE53935);
 }

@@ -2,6 +2,10 @@
 
 PDF 업로드·변환·파일 관리를 지원하는 Flutter 기반 모바일 앱입니다.
 
+## Version
+
+- **Flutter**: 3.35.4
+
 ## Developer
 
 - **Name**: Joseph88
@@ -15,7 +19,7 @@ PDF 업로드·변환·파일 관리를 지원하는 Flutter 기반 모바일 �
 |------|-----------|
 | 상태관리 | flutter_riverpod |
 | 라우팅 | go_router |
-| 네트워크 | dio, pretty_dio_logger |
+| 네트워크 | dio |
 ---
 
 ## 코드 구조

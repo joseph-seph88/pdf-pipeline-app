@@ -21,6 +21,8 @@ final dioProvider = Provider<Dio>(
     tokenStorage: ref.read(tokenStorageProvider),
     onUnauthorized: () =>
         ref.read(authStateProvider.notifier).setUnauthenticated(),
+    onTokenExpired: () =>
+        ref.read(authStateProvider.notifier).setTokenExpired(),
   ),
 );
 
