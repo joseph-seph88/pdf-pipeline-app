@@ -7,5 +7,11 @@ class ApiPath {
 
   // Auth
   static final String login = '$baseUrl/auth/login';
-  static final String signUp = '$baseUrl/auth/signup';
+  static final String signUp = '$baseUrl/auth/sign-up';
+
+  // Documents
+  static final String documents = '$baseUrl/documents';
+
+  // User
+  static final String user = '$baseUrl/users/me';
 }

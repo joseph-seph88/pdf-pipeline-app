@@ -18,7 +18,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     return _apiClient.post(
       ApiPath.login,
-      (data) => (data as Map<String, dynamic>)['access_token'] as String,
+      (data) => (data as Map<String, dynamic>)['accessToken'] as String,
       data: {'email': email, 'password': password},
     );
   }

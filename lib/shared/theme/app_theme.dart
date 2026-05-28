@@ -15,14 +15,4 @@ class AppTheme {
         // textTheme: AppTypography.textTheme,
         fontFamily: 'Pretendard',
       );
-
-  static ThemeData get dark => ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.dark,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.white,
-          brightness: Brightness.dark,
-        ),
-        fontFamily: 'Pretendard',
-      );
 }

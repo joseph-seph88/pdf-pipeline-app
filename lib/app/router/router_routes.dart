@@ -1,9 +1,12 @@
+import 'dart:typed_data';
 import 'package:go_router/go_router.dart';
 import 'package:pdf_pipeline_app/app/router/router_path.dart';
 import 'package:pdf_pipeline_app/features/auth/presentation/views/pages/login_page.dart';
 import 'package:pdf_pipeline_app/features/auth/presentation/views/pages/sign_up_page.dart';
 import 'package:pdf_pipeline_app/features/my_files/presentation/views/pages/my_files_page.dart';
+import 'package:pdf_pipeline_app/features/my_files/presentation/views/pages/profile_edit_page.dart';
 import 'package:pdf_pipeline_app/features/pdf_convert/presentation/views/pages/pdf_convert_page.dart';
+import 'package:pdf_pipeline_app/features/pdf_convert/presentation/views/pages/pdf_viewer_page.dart';
 import 'package:pdf_pipeline_app/app/shell/shell_page.dart';
 import 'package:pdf_pipeline_app/app/splash/splash_page.dart';
 
@@ -21,6 +24,20 @@ class AppRoutes {
     GoRoute(
       path: RouterPath.signUp,
       builder: (context, state) => const SignUpPage(),
+    ),
+    GoRoute(
+      path: RouterPath.pdfViewer,
+      builder: (context, state) {
+        final extra = state.extra! as Map<String, dynamic>;
+        return PdfViewerPage(
+          bytes: extra['bytes'] as Uint8List,
+          name: extra['name'] as String,
+        );
+      },
+    ),
+    GoRoute(
+      path: RouterPath.profileEdit,
+      builder: (context, state) => const ProfileEditPage(),
     ),
   ];
 

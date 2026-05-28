@@ -7,4 +7,6 @@ class RouterPath {
   static const terms = '/terms';
   static const pdfConvert = '/pdf-convert';
   static const myFiles = '/my-files';
+  static const pdfViewer = '/pdf-viewer';
+  static const profileEdit = '/profile-edit';
 }

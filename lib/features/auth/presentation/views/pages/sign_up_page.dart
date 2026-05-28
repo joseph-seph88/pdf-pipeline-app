@@ -155,6 +155,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
         ref.read(signUpProvider.notifier).reset();
       }
       if (next.status == SignUpStatus.success) {
+        ref.read(signUpProvider.notifier).reset();
         context.goToLogin();
       }
     });

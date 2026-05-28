@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pdf_pipeline_app/shared/theme/app_colors.dart';
+import 'package:pdf_pipeline_app/shared/widgets/app_primary_button.dart';
 import '../../auth_validator.dart';
 import '../widgets/auth_header.dart';
-import '../widgets/auth_primary_button.dart';
 import '../widgets/auth_text_field.dart';
 
 class SignUpInfoPage extends StatelessWidget {
@@ -58,7 +58,7 @@ class SignUpInfoPage extends StatelessWidget {
                     const SizedBox(height: 16),
                     _buildConfirmPasswordField(),
                     const SizedBox(height: 32),
-                    AuthPrimaryButton(label: '가입하기', onPressed: onSubmit),
+                    AppPrimaryButton(label: '가입하기', onPressed: onSubmit),
                     const SizedBox(height: 32),
                   ],
                 ),
