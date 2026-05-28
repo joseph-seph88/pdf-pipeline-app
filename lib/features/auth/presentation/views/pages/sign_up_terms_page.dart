@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pdf_pipeline_app/shared/theme/app_colors.dart';
+import 'package:pdf_pipeline_app/shared/widgets/app_primary_button.dart';
 import '../widgets/auth_header.dart';
-import '../widgets/auth_primary_button.dart';
 
 class SignUpTermsPage extends StatelessWidget {
   const SignUpTermsPage({
@@ -53,7 +53,7 @@ class SignUpTermsPage extends StatelessWidget {
             onTap: onPrivacyTap,
           ),
           const SizedBox(height: 32),
-          AuthPrimaryButton(label: '다음', onPressed: onNext),
+          AppPrimaryButton(label: '다음', onPressed: onNext),
         ],
       ),
     );

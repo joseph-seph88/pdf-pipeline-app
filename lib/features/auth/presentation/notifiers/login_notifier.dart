@@ -16,8 +16,8 @@ class LoginNotifier extends Notifier<LoginState> {
         .read(authRepositoryProvider)
         .login(email: email, password: password);
 
-    result.fold(
-      (failure) => state = state.copyWith(
+    await result.fold(
+      (failure) async => state = state.copyWith(
         status: LoginStatus.failure,
         errorMessage: failure.message,
       ),

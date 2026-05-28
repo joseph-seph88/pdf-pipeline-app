@@ -9,6 +9,7 @@ class DioConfig {
   static Dio create({
     required TokenStorage tokenStorage,
     required VoidCallback onUnauthorized,
+    required VoidCallback onTokenExpired,
   }) {
     final dio = Dio(
       BaseOptions(
@@ -19,7 +20,10 @@ class DioConfig {
       ),
     )..interceptors.add(
         AuthInterceptor(
-            tokenStorage: tokenStorage, onUnauthorized: onUnauthorized),
+          tokenStorage: tokenStorage,
+          onUnauthorized: onUnauthorized,
+          onTokenExpired: onTokenExpired,
+        ),
       );
 
     if (kDebugMode) {

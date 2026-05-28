@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:pdf_pipeline_app/core/constants/app_message.dart';
@@ -10,6 +11,7 @@ class ApiClient {
   ApiClient(this._dio);
 
   final Dio _dio;
+  final _plainDio = Dio();
 
   Future<Either<Failure, ApiResponse<T>>> get<T>(
     String path,
@@ -118,6 +120,20 @@ class ApiClient {
         ),
       );
 
+  Future<Either<Failure, Uint8List>> downloadBytes(String url) async {
+    try {
+      final res = await _plainDio.get<List<int>>(
+        url,
+        options: Options(responseType: ResponseType.bytes),
+      );
+      return Right(Uint8List.fromList(res.data!));
+    } on DioException catch (e, s) {
+      return handleError(e, s);
+    } catch (e, s) {
+      return handleError(e, s);
+    }
+  }
+
   Future<Either<Failure, ApiResponse<T>>> _handleRequest<T>(
     T Function(dynamic) fromData,
     Future<Response> Function() call,
@@ -129,6 +145,9 @@ class ApiClient {
       if (e.type == DioExceptionType.badResponse) {
         final statusCode = e.response?.statusCode ?? 0;
         final body = e.response?.data;
+        if (statusCode == 413) {
+          return const Left(ServerFailure('파일 크기가 서버 허용 한도를 초과합니다'));
+        }
         if (statusCode >= 400 &&
             statusCode < 500 &&
             body is Map<String, dynamic> &&

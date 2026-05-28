@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pdf_pipeline_app/app/router/router_path.dart';
@@ -11,4 +12,7 @@ extension RouterNavigation on BuildContext {
 
   // PUSH
   void pushToSignUp() => push(RouterPath.signUp);
+  void pushToPdfViewer({required Uint8List bytes, required String name}) =>
+      push(RouterPath.pdfViewer, extra: {'bytes': bytes, 'name': name});
+  void pushToProfileEdit() => push(RouterPath.profileEdit);
 }

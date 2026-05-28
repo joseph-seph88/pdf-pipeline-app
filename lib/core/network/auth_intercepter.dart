@@ -9,11 +9,14 @@ class AuthInterceptor extends Interceptor {
   AuthInterceptor({
     required TokenStorage tokenStorage,
     required VoidCallback onUnauthorized,
+    required VoidCallback onTokenExpired,
   })  : _tokenStorage = tokenStorage,
-        _onUnauthorized = onUnauthorized;
+        _onUnauthorized = onUnauthorized,
+        _onTokenExpired = onTokenExpired;
 
   final TokenStorage _tokenStorage;
   final VoidCallback _onUnauthorized;
+  final VoidCallback _onTokenExpired;
 
   @override
   Future<void> onRequest(
@@ -44,8 +47,8 @@ class AuthInterceptor extends Interceptor {
       return handler.next(err);
     }
 
-    final statusType = data is Map ? data['status_type'] as String? : null;
-
+    final raw = data is Map ? data['status_type'] : null;
+    final statusType = raw is String ? raw : null;
     final isAuthError = statusCode == 401 || statusCode == 403;
     final isAuthStatusType =
         statusType == ServerStatusType.invalidToken.value ||
@@ -54,8 +57,14 @@ class AuthInterceptor extends Interceptor {
 
     if (isAuthError && isAuthStatusType) {
       logger.w('인증 에러 ($statusCode, $statusType)');
+      // Refresh 토큰 로직은 프로덕션 레포에서...
       await _clearSession();
-      _onUnauthorized();
+
+      if (statusType == ServerStatusType.invalidToken.value) {
+        _onTokenExpired();
+      } else {
+        _onUnauthorized();
+      }
       return handler.next(err);
     }
 
